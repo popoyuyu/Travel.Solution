@@ -21,13 +21,18 @@ namespace Travel.Controllers
 
     // GET api/destinations
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Destination>>> Get(string country, int rateMin, int rateMax)
+    public async Task<ActionResult<IEnumerable<Destination>>> Get(string country, string city, int rateMin, int rateMax)
     {
       var query = _db.Destinations.AsQueryable();
 
       if (country != null)
       {
         query = query.Where(entry => entry.Country == country);
+      }
+
+      if (city != null)
+      {
+        query = query.Where(entry => entry.City == city);
       }
 
       if (rateMin != 0)
