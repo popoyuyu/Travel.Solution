@@ -6,7 +6,7 @@ namespace Travel.Models
     public int DestinationId { get; set; }
     // [Required]
     // [StringLength(20)]
-    // public string Username { get; set; }
+    // public string User { get; set; }
     [Required]
     [StringLength(20)]
     public string Country { get; set; }
